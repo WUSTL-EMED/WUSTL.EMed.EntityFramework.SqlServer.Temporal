@@ -1,0 +1,33 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31321.278
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WUSTL.EMed.EntityFramework.SqlServer.Temporal", "WUSTL.EMed.EntityFramework.SqlServer.Temporal\WUSTL.EMed.EntityFramework.SqlServer.Temporal.csproj", "{769379A5-A915-4430-8EE5-50C84EC9EF6E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{2E72327C-FE14-4E15-864F-7859E0960AA6}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+		.gitignore = .gitignore
+		LICENSE.txt = LICENSE.txt
+		THIRD-PARTY-NOTICES.txt = THIRD-PARTY-NOTICES.txt
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{769379A5-A915-4430-8EE5-50C84EC9EF6E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{769379A5-A915-4430-8EE5-50C84EC9EF6E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{769379A5-A915-4430-8EE5-50C84EC9EF6E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{769379A5-A915-4430-8EE5-50C84EC9EF6E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5BC48DCE-AA0B-47A7-A048-1C066A159868}
+	EndGlobalSection
+EndGlobal

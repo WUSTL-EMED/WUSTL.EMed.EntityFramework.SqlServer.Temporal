@@ -1,0 +1,308 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>WUSTL.EMed.EntityFramework.SqlServer.Temporal</name>
+    </assembly>
+    <members>
+        <member name="T:WUSTL.EMed.EntityFramework.SqlServer.Temporal.IDbMigrationExtensions">
+            <summary>
+            A collection of <see cref="T:System.Data.Entity.Migrations.Infrastructure.IDbMigration"/> extension methods.
+            </summary>
+        </member>
+        <member name="M:WUSTL.EMed.EntityFramework.SqlServer.Temporal.IDbMigrationExtensions.AlterTableDisableTemporal(System.Data.Entity.Migrations.Infrastructure.IDbMigration,System.String,System.String)">
+            <summary>
+            Alters a table to disable system versioning.
+            </summary>
+            <param name="migration">An <see cref="T:System.Data.Entity.Migrations.Infrastructure.IDbMigration"/> instance.</param>
+            <param name="name">The table name.</param>
+            <param name="schema">The schema that contains the table, or null to use the default schema.</param>
+        </member>
+        <member name="M:WUSTL.EMed.EntityFramework.SqlServer.Temporal.IDbMigrationExtensions.AlterTableEnableTemporal(System.Data.Entity.Migrations.Infrastructure.IDbMigration,System.String,System.String,System.String)">
+            <summary>
+            Alters a table to enable system versioning.
+            </summary>
+            <param name="migration">An <see cref="T:System.Data.Entity.Migrations.Infrastructure.IDbMigration"/> instance.</param>
+            <param name="name">The table name.</param>
+            <param name="schema">The schema that contains the table, or null to use the default schema.</param>
+            <param name="historyName">The history table name.</param>
+        </member>
+        <member name="M:WUSTL.EMed.EntityFramework.SqlServer.Temporal.IDbMigrationExtensions.AlterTableMakeTemporal(System.Data.Entity.Migrations.Infrastructure.IDbMigration,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            Alters a table to make it system versioned (temporal).
+            </summary>
+            <param name="migration">An <see cref="T:System.Data.Entity.Migrations.Infrastructure.IDbMigration"/> instance.</param>
+            <param name="name">The table name.</param>
+            <param name="schema">The schema that contains the table, or null to use the default schema.</param>
+            <param name="historyName">The history table name.</param>
+            <param name="startColumnName">The name of the temporal start timestamp column.</param>
+            <param name="endColumnName">The name of the temporal end timestamp column.</param>
+        </member>
+        <member name="M:WUSTL.EMed.EntityFramework.SqlServer.Temporal.IDbMigrationExtensions.AlterTableRemoveTemporal(System.Data.Entity.Migrations.Infrastructure.IDbMigration,System.String,System.String,System.String,System.String,System.String,System.Boolean,System.Boolean)">
+            <summary>
+            Alters a table to remove system versioning (temporal).
+            </summary>
+            <param name="migration">An <see cref="T:System.Data.Entity.Migrations.Infrastructure.IDbMigration"/> instance.</param>
+            <param name="name">The table name.</param>
+            <param name="schema">The schema that contains the table, or null to use the default schema.</param>
+            <param name="historyName">The history table name.</param>
+            <param name="startColumnName">The name of the temporal start timestamp column.</param>
+            <param name="endColumnName">The name of the temporal end timestamp column.</param>
+            <param name="dropHistoryTable">True if the history table should be dropped; otherwise, false.</param>
+            <param name="dropTimestampColumns">True if the timestamp columns should be dropped; otherwise, false.</param>
+        </member>
+        <member name="T:WUSTL.EMed.EntityFramework.SqlServer.Temporal.Operations.AlterTableDisableTemporalOperation">
+            <summary>
+            An operation to disable system versioning on a table (temporal).
+            </summary>
+        </member>
+        <member name="M:WUSTL.EMed.EntityFramework.SqlServer.Temporal.Operations.AlterTableDisableTemporalOperation.#ctor(System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:WUSTL.EMed.EntityFramework.SqlServer.Temporal.Operations.AlterTableDisableTemporalOperation"/> class.
+            </summary>
+            <param name="name">The table name.</param>
+            <param name="schema">The schema that contains the table, or null to use the default schema.</param>
+        </member>
+        <member name="P:WUSTL.EMed.EntityFramework.SqlServer.Temporal.Operations.AlterTableDisableTemporalOperation.Schema">
+            <summary>
+            Gets or sets the schema containing the table.
+            </summary>
+        </member>
+        <member name="P:WUSTL.EMed.EntityFramework.SqlServer.Temporal.Operations.AlterTableDisableTemporalOperation.Name">
+            <summary>
+            Gets or sets the name of the table.
+            </summary>
+        </member>
+        <member name="P:WUSTL.EMed.EntityFramework.SqlServer.Temporal.Operations.AlterTableDisableTemporalOperation.IsDestructiveChange">
+            <inheritdoc/>
+        </member>
+        <member name="P:WUSTL.EMed.EntityFramework.SqlServer.Temporal.Operations.AlterTableDisableTemporalOperation.Sql">
+            <inheritdoc/>
+        </member>
+        <member name="T:WUSTL.EMed.EntityFramework.SqlServer.Temporal.Operations.AlterTableEnableTemporalOperation">
+            <summary>
+            An operation to enable system versioning on a table (temporal).
+            </summary>
+        </member>
+        <member name="M:WUSTL.EMed.EntityFramework.SqlServer.Temporal.Operations.AlterTableEnableTemporalOperation.#ctor(System.String,System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:WUSTL.EMed.EntityFramework.SqlServer.Temporal.Operations.AlterTableEnableTemporalOperation"/> class.
+            </summary>
+            <param name="name">The table name.</param>
+            <param name="schema">The schema that contains the table, or null to use the default schema.</param>
+            <param name="historyName">The history table name.</param>
+        </member>
+        <member name="P:WUSTL.EMed.EntityFramework.SqlServer.Temporal.Operations.AlterTableEnableTemporalOperation.Schema">
+            <summary>
+            Gets or sets the schema containing the table.
+            </summary>
+        </member>
+        <member name="P:WUSTL.EMed.EntityFramework.SqlServer.Temporal.Operations.AlterTableEnableTemporalOperation.Name">
+            <summary>
+            Gets or sets the name of the table.
+            </summary>
+        </member>
+        <member name="P:WUSTL.EMed.EntityFramework.SqlServer.Temporal.Operations.AlterTableEnableTemporalOperation.HistoryName">
+            <summary>
+            Gets or sets the name of the history table.
+            </summary>
+        </member>
+        <member name="P:WUSTL.EMed.EntityFramework.SqlServer.Temporal.Operations.AlterTableEnableTemporalOperation.IsDestructiveChange">
+            <inheritdoc/>
+        </member>
+        <member name="P:WUSTL.EMed.EntityFramework.SqlServer.Temporal.Operations.AlterTableEnableTemporalOperation.Sql">
+            <inheritdoc/>
+        </member>
+        <member name="T:WUSTL.EMed.EntityFramework.SqlServer.Temporal.Operations.AlterTableRemoveTemporalOperation">
+            <summary>
+            An operation to remove system versioning (temporal) froma table.
+            </summary>
+        </member>
+        <member name="M:WUSTL.EMed.EntityFramework.SqlServer.Temporal.Operations.AlterTableRemoveTemporalOperation.#ctor(System.String,System.String,System.String,System.String,System.String,System.Boolean,System.Boolean)">
+            <summary>
+            Initializes a new instance of the <see cref="T:WUSTL.EMed.EntityFramework.SqlServer.Temporal.Operations.AlterTableRemoveTemporalOperation"/> class.
+            </summary>
+            <param name="name">The table name.</param>
+            <param name="schema">The schema that contains the table, or null to use the default schema.</param>
+            <param name="historyName">The history table name.</param>
+            <param name="startColumnName">The name of the temporal start timestamp column.</param>
+            <param name="endColumnName">The name of the temporal end timestamp column.</param>
+            <param name="dropHistoryTable">True if the history table should be dropped; otherwise, false.</param>
+            <param name="dropTimestampColumns">True if the timestamp columns should be dropped; otherwise, false.</param>
+        </member>
+        <member name="P:WUSTL.EMed.EntityFramework.SqlServer.Temporal.Operations.AlterTableRemoveTemporalOperation.Schema">
+            <summary>
+            Gets or sets the schema containing the table.
+            </summary>
+        </member>
+        <member name="P:WUSTL.EMed.EntityFramework.SqlServer.Temporal.Operations.AlterTableRemoveTemporalOperation.Name">
+            <summary>
+            Gets or sets the name of the table.
+            </summary>
+        </member>
+        <member name="P:WUSTL.EMed.EntityFramework.SqlServer.Temporal.Operations.AlterTableRemoveTemporalOperation.HistoryName">
+            <summary>
+            Gets or sets the name of the history table.
+            </summary>
+        </member>
+        <member name="P:WUSTL.EMed.EntityFramework.SqlServer.Temporal.Operations.AlterTableRemoveTemporalOperation.StartColumnName">
+            <summary>
+            Gets or sets the name of the temporal start timestamp column.
+            </summary>
+        </member>
+        <member name="P:WUSTL.EMed.EntityFramework.SqlServer.Temporal.Operations.AlterTableRemoveTemporalOperation.EndColumnName">
+            <summary>
+            Gets or sets the name of the temporal end timestamp column.
+            </summary>
+        </member>
+        <member name="P:WUSTL.EMed.EntityFramework.SqlServer.Temporal.Operations.AlterTableRemoveTemporalOperation.DropHistoryTable">
+            <summary>
+            Gets or sets a value indicating whether the history table should be dropped; default is true.
+            </summary>
+        </member>
+        <member name="P:WUSTL.EMed.EntityFramework.SqlServer.Temporal.Operations.AlterTableRemoveTemporalOperation.DropTimestampColumns">
+            <summary>
+            Gets or sets a value indicating whether the temporal timestamp columns should be dropped; default is true.
+            </summary>
+        </member>
+        <member name="P:WUSTL.EMed.EntityFramework.SqlServer.Temporal.Operations.AlterTableRemoveTemporalOperation.IsDestructiveChange">
+            <inheritdoc/>
+        </member>
+        <member name="P:WUSTL.EMed.EntityFramework.SqlServer.Temporal.Operations.AlterTableRemoveTemporalOperation.Sql">
+            <inheritdoc/>
+        </member>
+        <member name="T:WUSTL.EMed.EntityFramework.SqlServer.Temporal.Operations.AlterTableMakeTemporalOperation">
+            <summary>
+            An operation to make a table system versioned (temporal).
+            </summary>
+        </member>
+        <member name="M:WUSTL.EMed.EntityFramework.SqlServer.Temporal.Operations.AlterTableMakeTemporalOperation.#ctor(System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:WUSTL.EMed.EntityFramework.SqlServer.Temporal.Operations.AlterTableMakeTemporalOperation"/> class.
+            </summary>
+            <param name="name">The table name.</param>
+            <param name="schema">The schema that contains the table, or null to use the default schema.</param>
+            <param name="historyName">The history table name.</param>
+            <param name="startColumnName">The name of the temporal start timestamp column.</param>
+            <param name="endColumnName">The name of the temporal end timestamp column.</param>
+        </member>
+        <member name="P:WUSTL.EMed.EntityFramework.SqlServer.Temporal.Operations.AlterTableMakeTemporalOperation.Schema">
+            <summary>
+            Gets or sets the schema containing the table.
+            </summary>
+        </member>
+        <member name="P:WUSTL.EMed.EntityFramework.SqlServer.Temporal.Operations.AlterTableMakeTemporalOperation.Name">
+            <summary>
+            Gets or sets the name of the table.
+            </summary>
+        </member>
+        <member name="P:WUSTL.EMed.EntityFramework.SqlServer.Temporal.Operations.AlterTableMakeTemporalOperation.HistoryName">
+            <summary>
+            Gets or sets the name of the history table.
+            </summary>
+        </member>
+        <member name="P:WUSTL.EMed.EntityFramework.SqlServer.Temporal.Operations.AlterTableMakeTemporalOperation.StartColumnName">
+            <summary>
+            Gets or sets the name of the temporal start timestamp column.
+            </summary>
+        </member>
+        <member name="P:WUSTL.EMed.EntityFramework.SqlServer.Temporal.Operations.AlterTableMakeTemporalOperation.EndColumnName">
+            <summary>
+            Gets or sets the name of the temporal end timestamp column.
+            </summary>
+        </member>
+        <member name="P:WUSTL.EMed.EntityFramework.SqlServer.Temporal.Operations.AlterTableMakeTemporalOperation.IsDestructiveChange">
+            <inheritdoc/>
+        </member>
+        <member name="P:WUSTL.EMed.EntityFramework.SqlServer.Temporal.Operations.AlterTableMakeTemporalOperation.Sql">
+            <inheritdoc/>
+        </member>
+        <member name="T:WUSTL.EMed.EntityFramework.SqlServer.Temporal.Utils.SqlUtils">
+            <summary>
+            A static class of sql utility methods.
+            </summary>
+        </member>
+        <member name="M:WUSTL.EMed.EntityFramework.SqlServer.Temporal.Utils.SqlUtils.EscapeIdentifier(System.String)">
+            <summary>
+            Escapes a string for use in a sql server quoted identifier name.
+            </summary>
+            <param name="s">The string to escape.</param>
+            <returns>The given string where "]" has been replaced with "]]".</returns>
+        </member>
+        <member name="M:WUSTL.EMed.EntityFramework.SqlServer.Temporal.Utils.SqlUtils.EscapeString(System.String)">
+            <summary>
+            Escapes a string for use in a sql server string literal.
+            </summary>
+            <param name="s">The string to escape.</param>
+            <returns>The given string where "'" has been replaced with "''".</returns>
+        </member>
+        <member name="T:ThisAssembly">
+            <summary>Provides access to the current assembly information.</summary>
+        </member>
+        <member name="T:ThisAssembly.Git">
+            <summary>Provides access to the git information for the current assembly.</summary>
+        </member>
+        <member name="F:ThisAssembly.Git.IsDirty">
+            <summary>IsDirty: true</summary>
+        </member>
+        <member name="F:ThisAssembly.Git.IsDirtyString">
+            <summary>IsDirtyString: true</summary>
+        </member>
+        <member name="F:ThisAssembly.Git.RepositoryUrl">
+            <summary>Repository URL: git@github.com:WUSTL-EMED/WUSTL.EMed.EntityFramework.SqlServer.Temporal.git</summary>
+        </member>
+        <member name="F:ThisAssembly.Git.Branch">
+            <summary>Branch: master</summary>
+        </member>
+        <member name="F:ThisAssembly.Git.Commit">
+            <summary>Commit: 5551664</summary>
+        </member>
+        <member name="F:ThisAssembly.Git.Sha">
+            <summary>Sha: 55516649bc9b48060a0c90745642f383e2804724</summary>
+        </member>
+        <member name="F:ThisAssembly.Git.CommitDate">
+            <summary>Commit date: 2021-06-14T08:19:51-05:00</summary>
+        </member>
+        <member name="F:ThisAssembly.Git.Commits">
+            <summary>Commits on top of base version: 2</summary>
+        </member>
+        <member name="F:ThisAssembly.Git.Tag">
+            <summary>Tag: </summary>
+        </member>
+        <member name="F:ThisAssembly.Git.BaseTag">
+            <summary>Base tag: </summary>
+        </member>
+        <member name="T:ThisAssembly.Git.BaseVersion">
+            <summary>Provides access to the base version information used to determine the <see cref="T:ThisAssembly.Git.SemVer" />.</summary>      
+        </member>
+        <member name="F:ThisAssembly.Git.BaseVersion.Major">
+            <summary>Major: 0</summary>
+        </member>
+        <member name="F:ThisAssembly.Git.BaseVersion.Minor">
+            <summary>Minor: 0</summary>
+        </member>
+        <member name="F:ThisAssembly.Git.BaseVersion.Patch">
+            <summary>Patch: 0</summary>
+        </member>
+        <member name="T:ThisAssembly.Git.SemVer">
+            <summary>Provides access to SemVer information for the current assembly.</summary>
+        </member>
+        <member name="F:ThisAssembly.Git.SemVer.Major">
+            <summary>Major: 0</summary>
+        </member>
+        <member name="F:ThisAssembly.Git.SemVer.Minor">
+            <summary>Minor: 0</summary>
+        </member>
+        <member name="F:ThisAssembly.Git.SemVer.Patch">
+            <summary>Patch: 2</summary>
+        </member>
+        <member name="F:ThisAssembly.Git.SemVer.Label">
+            <summary>Label: </summary>
+        </member>
+        <member name="F:ThisAssembly.Git.SemVer.DashLabel">
+            <summary>Label with dash prefix: </summary>
+        </member>
+        <member name="F:ThisAssembly.Git.SemVer.Source">
+            <summary>Source: Default</summary>
+        </member>
+    </members>
+</doc>
