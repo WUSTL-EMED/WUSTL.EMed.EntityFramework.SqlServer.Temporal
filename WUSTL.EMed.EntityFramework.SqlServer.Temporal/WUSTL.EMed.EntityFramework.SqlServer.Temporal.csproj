@@ -30,7 +30,7 @@
     <Deterministic>true</Deterministic>
     <DefineConstants>
     </DefineConstants>
-    <DebugType>pdbonly</DebugType>
+    <DebugType>portable</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
     <ErrorReport>prompt</ErrorReport>
