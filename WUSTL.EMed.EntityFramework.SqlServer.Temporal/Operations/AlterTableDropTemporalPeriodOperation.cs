@@ -1,4 +1,4 @@
-﻿// <copyright file="AlterTableDisableTemporalOperation.cs" company="Washington University in St. Louis">
+﻿// <copyright file="AlterTableDropTemporalPeriodOperation.cs" company="Washington University in St. Louis">
 // Copyright (c) 2021 Washington University in St. Louis. All rights reserved.
 // Licensed under the MIT License. See License.txt in the project root for license information.
 // </copyright>
@@ -10,19 +10,19 @@ namespace WUSTL.EMed.EntityFramework.SqlServer.Temporal.Operations
     using WUSTL.EMed.EntityFramework.SqlServer.Temporal.Utils;
 
     /// <summary>
-    /// An operation to disable system versioning on a table (temporal).
+    /// An operation to drop the period on a system versioned table (temporal).
     /// </summary>
-    public class AlterTableDisableTemporalOperation : SqlOperation
+    public class AlterTableDropTemporalPeriodOperation : SqlOperation
     {
         private string schema;
         private string name;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="AlterTableDisableTemporalOperation"/> class.
+        /// Initializes a new instance of the <see cref="AlterTableDropTemporalPeriodOperation"/> class.
         /// </summary>
         /// <param name="name">The table name.</param>
         /// <param name="schema">The schema that contains the table, or null to use the default schema.</param>
-        public AlterTableDisableTemporalOperation(string name, string schema)
+        public AlterTableDropTemporalPeriodOperation(string name, string schema)
             : base(";", null)
         {
             Name = name;
@@ -58,7 +58,7 @@ namespace WUSTL.EMed.EntityFramework.SqlServer.Temporal.Operations
                 var schema = SqlUtils.EscapeIdentifier(this.schema ?? "dbo");
                 var name = SqlUtils.EscapeIdentifier(this.name);
 
-                return $"ALTER TABLE [{schema}].[{name}] SET (SYSTEM_VERSIONING = OFF);";
+                return $"ALTER TABLE [{schema}].[{name}] DROP PERIOD FOR SYSTEM_TIME;";
             }
         }
     }

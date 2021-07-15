@@ -9,9 +9,27 @@
             A collection of <see cref="T:System.Data.Entity.Migrations.Infrastructure.IDbMigration"/> extension methods.
             </summary>
         </member>
+        <member name="M:WUSTL.EMed.EntityFramework.SqlServer.Temporal.IDbMigrationExtensions.AlterTableAddTemporalPeriod(System.Data.Entity.Migrations.Infrastructure.IDbMigration,System.String,System.String,System.String,System.String)">
+            <summary>
+            Alters a table to add the period on a system versioned table (temporal).
+            </summary>
+            <param name="migration">An <see cref="T:System.Data.Entity.Migrations.Infrastructure.IDbMigration"/> instance.</param>
+            <param name="name">The table name.</param>
+            <param name="schema">The schema that contains the table, or null to use the default schema.</param>
+            <param name="startColumnName">The name of the temporal start timestamp column.</param>
+            <param name="endColumnName">The name of the temporal end timestamp column.</param>
+        </member>
         <member name="M:WUSTL.EMed.EntityFramework.SqlServer.Temporal.IDbMigrationExtensions.AlterTableDisableTemporal(System.Data.Entity.Migrations.Infrastructure.IDbMigration,System.String,System.String)">
             <summary>
             Alters a table to disable system versioning.
+            </summary>
+            <param name="migration">An <see cref="T:System.Data.Entity.Migrations.Infrastructure.IDbMigration"/> instance.</param>
+            <param name="name">The table name.</param>
+            <param name="schema">The schema that contains the table, or null to use the default schema.</param>
+        </member>
+        <member name="M:WUSTL.EMed.EntityFramework.SqlServer.Temporal.IDbMigrationExtensions.AlterTableDropTemporalPeriod(System.Data.Entity.Migrations.Infrastructure.IDbMigration,System.String,System.String)">
+            <summary>
+            Alters a table to drop the period on a system versioned table (temporal).
             </summary>
             <param name="migration">An <see cref="T:System.Data.Entity.Migrations.Infrastructure.IDbMigration"/> instance.</param>
             <param name="name">The table name.</param>
@@ -49,6 +67,74 @@
             <param name="endColumnName">The name of the temporal end timestamp column.</param>
             <param name="dropHistoryTable">True if the history table should be dropped; otherwise, false.</param>
             <param name="dropTimestampColumns">True if the timestamp columns should be dropped; otherwise, false.</param>
+        </member>
+        <member name="T:WUSTL.EMed.EntityFramework.SqlServer.Temporal.Operations.AlterTableDropTemporalPeriodOperation">
+            <summary>
+            An operation to drop the period on a system versioned table (temporal).
+            </summary>
+        </member>
+        <member name="M:WUSTL.EMed.EntityFramework.SqlServer.Temporal.Operations.AlterTableDropTemporalPeriodOperation.#ctor(System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:WUSTL.EMed.EntityFramework.SqlServer.Temporal.Operations.AlterTableDropTemporalPeriodOperation"/> class.
+            </summary>
+            <param name="name">The table name.</param>
+            <param name="schema">The schema that contains the table, or null to use the default schema.</param>
+        </member>
+        <member name="P:WUSTL.EMed.EntityFramework.SqlServer.Temporal.Operations.AlterTableDropTemporalPeriodOperation.Schema">
+            <summary>
+            Gets or sets the schema containing the table.
+            </summary>
+        </member>
+        <member name="P:WUSTL.EMed.EntityFramework.SqlServer.Temporal.Operations.AlterTableDropTemporalPeriodOperation.Name">
+            <summary>
+            Gets or sets the name of the table.
+            </summary>
+        </member>
+        <member name="P:WUSTL.EMed.EntityFramework.SqlServer.Temporal.Operations.AlterTableDropTemporalPeriodOperation.IsDestructiveChange">
+            <inheritdoc/>
+        </member>
+        <member name="P:WUSTL.EMed.EntityFramework.SqlServer.Temporal.Operations.AlterTableDropTemporalPeriodOperation.Sql">
+            <inheritdoc/>
+        </member>
+        <member name="T:WUSTL.EMed.EntityFramework.SqlServer.Temporal.Operations.AlterTableAddTemporalPeriodOperation">
+            <summary>
+            An operation to add the period on a system versioned table (temporal).
+            </summary>
+        </member>
+        <member name="M:WUSTL.EMed.EntityFramework.SqlServer.Temporal.Operations.AlterTableAddTemporalPeriodOperation.#ctor(System.String,System.String,System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:WUSTL.EMed.EntityFramework.SqlServer.Temporal.Operations.AlterTableAddTemporalPeriodOperation"/> class.
+            </summary>
+            <param name="name">The table name.</param>
+            <param name="schema">The schema that contains the table, or null to use the default schema.</param>
+            <param name="startColumnName">The name of the temporal start timestamp column.</param>
+            <param name="endColumnName">The name of the temporal end timestamp column.</param>
+        </member>
+        <member name="P:WUSTL.EMed.EntityFramework.SqlServer.Temporal.Operations.AlterTableAddTemporalPeriodOperation.Schema">
+            <summary>
+            Gets or sets the schema containing the table.
+            </summary>
+        </member>
+        <member name="P:WUSTL.EMed.EntityFramework.SqlServer.Temporal.Operations.AlterTableAddTemporalPeriodOperation.Name">
+            <summary>
+            Gets or sets the name of the table.
+            </summary>
+        </member>
+        <member name="P:WUSTL.EMed.EntityFramework.SqlServer.Temporal.Operations.AlterTableAddTemporalPeriodOperation.StartColumnName">
+            <summary>
+            Gets or sets the name of the temporal start timestamp column.
+            </summary>
+        </member>
+        <member name="P:WUSTL.EMed.EntityFramework.SqlServer.Temporal.Operations.AlterTableAddTemporalPeriodOperation.EndColumnName">
+            <summary>
+            Gets or sets the name of the temporal end timestamp column.
+            </summary>
+        </member>
+        <member name="P:WUSTL.EMed.EntityFramework.SqlServer.Temporal.Operations.AlterTableAddTemporalPeriodOperation.IsDestructiveChange">
+            <inheritdoc/>
+        </member>
+        <member name="P:WUSTL.EMed.EntityFramework.SqlServer.Temporal.Operations.AlterTableAddTemporalPeriodOperation.Sql">
+            <inheritdoc/>
         </member>
         <member name="T:WUSTL.EMed.EntityFramework.SqlServer.Temporal.Operations.AlterTableDisableTemporalOperation">
             <summary>
@@ -254,16 +340,16 @@
             <summary>Branch: master</summary>
         </member>
         <member name="F:ThisAssembly.Git.Commit">
-            <summary>Commit: 69a36f2</summary>
+            <summary>Commit: e6f5ed7</summary>
         </member>
         <member name="F:ThisAssembly.Git.Sha">
-            <summary>Sha: 69a36f2c2e958266bf60d9712bc545e0eb82fe00</summary>
+            <summary>Sha: e6f5ed7e95ce2d147a7eb00b42abca9e1e01ff0d</summary>
         </member>
         <member name="F:ThisAssembly.Git.CommitDate">
-            <summary>Commit date: 2021-06-23T10:34:14-05:00</summary>
+            <summary>Commit date: 2021-06-23T12:52:41-05:00</summary>
         </member>
         <member name="F:ThisAssembly.Git.Commits">
-            <summary>Commits on top of base version: 4</summary>
+            <summary>Commits on top of base version: 5</summary>
         </member>
         <member name="F:ThisAssembly.Git.Tag">
             <summary>Tag: </summary>
@@ -293,7 +379,7 @@
             <summary>Minor: 0</summary>
         </member>
         <member name="F:ThisAssembly.Git.SemVer.Patch">
-            <summary>Patch: 4</summary>
+            <summary>Patch: 5</summary>
         </member>
         <member name="F:ThisAssembly.Git.SemVer.Label">
             <summary>Label: </summary>

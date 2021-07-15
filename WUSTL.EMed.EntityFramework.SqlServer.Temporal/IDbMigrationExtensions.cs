@@ -15,6 +15,24 @@ namespace WUSTL.EMed.EntityFramework.SqlServer.Temporal
     public static class IDbMigrationExtensions
     {
         /// <summary>
+        /// Alters a table to add the period on a system versioned table (temporal).
+        /// </summary>
+        /// <param name="migration">An <see cref="IDbMigration"/> instance.</param>
+        /// <param name="name">The table name.</param>
+        /// <param name="schema">The schema that contains the table, or null to use the default schema.</param>
+        /// <param name="startColumnName">The name of the temporal start timestamp column.</param>
+        /// <param name="endColumnName">The name of the temporal end timestamp column.</param>
+        public static void AlterTableAddTemporalPeriod(this IDbMigration migration, string name, string schema = "dbo", string startColumnName = "SysTimeStart", string endColumnName = "SysTimeEnd")
+        {
+            if (migration is null)
+            {
+                throw new ArgumentNullException(nameof(migration));
+            }
+
+            migration.AddOperation(new AlterTableAddTemporalPeriodOperation(name, schema, startColumnName, endColumnName));
+        }
+
+        /// <summary>
         /// Alters a table to disable system versioning.
         /// </summary>
         /// <param name="migration">An <see cref="IDbMigration"/> instance.</param>
@@ -28,6 +46,22 @@ namespace WUSTL.EMed.EntityFramework.SqlServer.Temporal
             }
 
             migration.AddOperation(new AlterTableDisableTemporalOperation(name, schema));
+        }
+
+        /// <summary>
+        /// Alters a table to drop the period on a system versioned table (temporal).
+        /// </summary>
+        /// <param name="migration">An <see cref="IDbMigration"/> instance.</param>
+        /// <param name="name">The table name.</param>
+        /// <param name="schema">The schema that contains the table, or null to use the default schema.</param>
+        public static void AlterTableDropTemporalPeriod(this IDbMigration migration, string name, string schema = "dbo")
+        {
+            if (migration is null)
+            {
+                throw new ArgumentNullException(nameof(migration));
+            }
+
+            migration.AddOperation(new AlterTableDropTemporalPeriodOperation(name, schema));
         }
 
         /// <summary>

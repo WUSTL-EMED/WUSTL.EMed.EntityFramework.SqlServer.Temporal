@@ -16,7 +16,8 @@
     <RootNamespace>WUSTL.EMed.EntityFramework.SqlServer.Temporal</RootNamespace>
     <AssemblyName>WUSTL.EMed.EntityFramework.SqlServer.Temporal</AssemblyName>
     <FileAlignment>512</FileAlignment>
-    <NuGetPackageImportStamp></NuGetPackageImportStamp>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
     <EmbedUntrackedSources>true</EmbedUntrackedSources>
     <ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
     <GenerateNuspecDependsOn>$(GenerateNuspecDependsOn);SetPackageVersionFromAssemblyVersion</GenerateNuspecDependsOn>
@@ -80,6 +81,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IDbMigrationExtensions.cs" />
+    <Compile Include="Operations\AlterTableDropTemporalPeriodOperation.cs" />
+    <Compile Include="Operations\AlterTableAddTemporalPeriodOperation.cs" />
     <Compile Include="Operations\AlterTableDisableTemporalOperation.cs" />
     <Compile Include="Operations\AlterTableEnableTemporalOperation.cs" />
     <Compile Include="Operations\AlterTableRemoveTemporalOperation.cs" />
@@ -122,7 +125,7 @@
   <Target Name="SetPackageVersionFromAssemblyVersion" DependsOnTargets="Build">
     <!-- Set nuget package version from assembly version. -->
     <GetAssemblyIdentity AssemblyFiles="$(TargetPath)">
-      <Output TaskParameter="Assemblies" ItemName="Assembly"/>
+      <Output TaskParameter="Assemblies" ItemName="Assembly" />
     </GetAssemblyIdentity>
     <PropertyGroup>
       <PackageVersion>%(Assembly.Version)</PackageVersion>
